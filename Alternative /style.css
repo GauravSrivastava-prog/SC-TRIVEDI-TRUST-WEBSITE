@@ -1,0 +1,188 @@
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f4f3e6;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 2rem;
+    height: 100px; /* Fixed height for header */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+header .logo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 80px; /* Adjust the height of the logo as needed */
+    max-height: 100%; /* Ensure it does not exceed the header's height */
+    clip-path: circle(40%);
+    width: auto; /* Maintain aspect ratio */
+}
+
+header .nav {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+header .nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header .nav ul li {
+    margin: 0 20px;
+}
+
+header .nav ul li a {
+    color: white;
+    font-weight: 700;
+    font-size: 1.15rem;
+    text-align: center;
+    text-decoration: none;
+    padding: 1rem;
+    position: relative;
+}
+
+header .nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+header .nav ul li a:hover::after {
+    width: 100%;
+}
+
+main {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+section {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0; /* Ensure no margin for sections */
+    padding: 0; /* Ensure no padding for sections */
+    width: 100%;
+}
+
+.no-parallax {
+    background-color: #f4f3e6;
+}
+
+.parallax {
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    background-position: center;
+}
+
+.bg {
+    background-image: url("assets/pexels-rdne-6647037.jpeg");
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.footer-sitemap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-sitemap ul {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Ensure no margin for lists */
+}
+
+.footer-sitemap ul li {
+    margin: 5px 0;
+}
+
+.footer-sitemap ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-sitemap ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-sitemap p {
+    font-weight: bold;
+}
+
+.footer-copyright {
+    text-align: center;
+    width: 100%;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+    margin-top: 20px;
+}
