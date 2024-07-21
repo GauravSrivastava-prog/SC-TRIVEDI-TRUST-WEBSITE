@@ -1,251 +1,102 @@
-/**
- *  Utility functions
- */
-function utils() {
-    /**
-     * Returns max height value for a nodelist
-     * @param {NodeList} nodeList The node list to calculate max height of
-     */
-    const calcMaxHeight = function (items) {
-        let maxHeight = 0;
+document.addEventListener("DOMContentLoaded", function() {
+    const slides = document.querySelectorAll(".slide");
+    let currentSlide = 0;
 
-        items.forEach(item => {
-            const h = item.clientHeight;
-            maxHeight = h > maxHeight ? h : maxHeight;
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle("active", i === index);
         });
-        return maxHeight;
     }
 
-    /**
-     * Removes Classes from NodeList
-     * @param {NodeList} nodeList The node list to remove classes from
-     * @param {Array} cssClasses Array of CSS classes to be removed
-     */
-    function removeClasses(nodeList, cssClasses) {
-        for (let i = 0; i < nodeList.length; i++) {
-            nodeList[i].classList.remove(...cssClasses);
-        }
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
     }
 
-    /**
-     * Adds Classes from NodeList
-     * @param {NodeList} nodeList The node list to add classes to
-     * @param {Array} cssClasses Array of CSS classes to be added
-     */
-    function addClasses(nodeList, cssClasses) {
-        for (let i = 0; i < nodeList.length; i++) {
-            nodeList[i].classList.add(...cssClasses);
-        }
-    }
-
-    /**
-     * Behaves the same as setInterval except uses requestAnimationFrame() where possible for better performance
-     * @param {function} fn The callback function
-     * @param {int} delay The delay in milliseconds
-     */
-    const requestInterval = function (fn, delay) {
-        const requestAnimFrame = (function () {
-            return window.requestAnimationFrame || function (callback, element) {
-                window.setTimeout(callback, 1000 / 60);
-            };
-        })();
-
-        let start = new Date().getTime(),
-            handle = {};
-
-        function loop() {
-            const current = new Date().getTime(),
-                delta = current - start;
-
-            if (delta >= delay) {
-                fn.call();
-                start = new Date().getTime();
-            }
-
-            handle.value = requestAnimFrame(loop);
-        }
-
-        handle.value = requestAnimFrame(loop);
-        return handle;
+    setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    showSlide(currentSlide); // Show the first slide initially
+    var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
     };
 
-    /**
-     * Behaves the same as clearInterval except uses cancelRequestAnimationFrame() where possible for better performance
-     * @param {int|object} handle The callback function
-     */
-    const clearRequestInterval = function (handle) {
-        window.cancelAnimationFrame ? window.cancelAnimationFrame(handle.value) :
-            clearInterval(handle);
-    };
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
 
-    return {
-        calcMaxHeight,
-        removeClasses,
-        addClasses,
-        requestInterval,
-        clearRequestInterval
-    }
-}
-
-
-/**
- *  Main Slider function
- */
-function heroSlider() {
-    const slider = {
-        hero: document.querySelector('#hero-slider'),
-        main: document.querySelector('#slides-main'),
-        aux: document.querySelector('#slides-aux'),
-        current: document.querySelector('#slider-nav .current'),
-        handle: null,
-        idle: true,
-        activeIndex: -1,
-        interval: 3500
-    };
-
-    const setHeight = function (holder, items) {
-        const h = utils().calcMaxHeight(items);
-        holder.style.height = `${h}px`;
-    }
-
-    const leadingZero = function () {
-        return arguments[1] < 10 ? '0' + arguments[1] : arguments[1];
-    }
-
-    const setCurrent = function () {
-        slider.current.innerText = leadingZero `${slider.activeIndex + 1}`;
-    }
-
-    const changeSlide = function (direction) {
-        slider.idle = false;
-        slider.hero.classList.remove('prev', 'next');
-        if (direction == 'next') {
-            slider.activeIndex = (slider.activeIndex + 1) % slider.total;
-            slider.hero.classList.add('next');
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
         } else {
-            slider.activeIndex = (slider.activeIndex - 1 + slider.total) % slider.total;
-            slider.hero.classList.add('prev');
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
         }
 
-        //reset classes
-        utils().removeClasses(slider.items, ['prev', 'active']);
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
 
-        //set prev  
-        const prevItems = [...slider.items]
-            .filter(item => {
-                let prevIndex;
-                if (slider.hero.classList.contains('prev')) {
-                    prevIndex = slider.activeIndex == slider.total - 1 ? 0 : slider.activeIndex + 1;
-                } else {
-                    prevIndex = slider.activeIndex == 0 ? slider.total - 1 : slider.activeIndex - 1;
-                }
+        var that = this;
+        var delta = 200 - Math.random() * 100;
 
-                return item.dataset.index == prevIndex;
-            });
+        if (this.isDeleting) { delta /= 2; }
 
-        //set active
-        const activeItems = [...slider.items]
-            .filter(item => {
-                return item.dataset.index == slider.activeIndex;
-            });
-
-        utils().addClasses(prevItems, ['prev']);
-        utils().addClasses(activeItems, ['active']);
-        setCurrent();
-
-        const activeImageItem = slider.main.querySelector('.active');
-        activeImageItem.addEventListener('transitionend', waitForIdle, {
-            once: true
-        });
-    }
-
-    const stopAutoplay = function () {
-        slider.autoplay = false;
-        utils().clearRequestInterval(slider.handle);
-    }
-
-    const waitForIdle = function () {
-        !slider.autoplay && autoplay(false); //restart
-        slider.idle = true;
-    }
-
-    const wheelControl = function () {
-        slider.hero.addEventListener('wheel', e => {
-            if (slider.idle) {
-                const direction = e.deltaY > 0 ? 'next' : 'prev';
-                stopAutoplay();
-                changeSlide(direction);
-            }
-        });
-    }
-
-    const autoplay = function (initial) {
-        slider.autoplay = true;
-        slider.items = slider.hero.querySelectorAll('[data-index]');
-        slider.total = slider.items.length / 2;
-
-        const loop = () => changeSlide('next');
-
-        initial && requestAnimationFrame(loop);
-        slider.handle = utils().requestInterval(loop, slider.interval);
-    }
-
-    const loaded = function () {
-        slider.hero.classList.add('loaded');
-    }
-
-    const touchControl = function () {
-        const touchStart = function (e) {
-            slider.ts = parseInt(e.changedTouches[0].clientX);
-            window.scrollTop = 0;
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
         }
 
-        const touchMove = function (e) {
-            slider.tm = parseInt(e.changedTouches[0].clientX);
-            const delta = slider.tm - slider.ts;
-            window.scrollTop = 0;
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
 
-            if (slider.idle) {
-                const direction = delta < 0 ? 'next' : 'prev';
-                stopAutoplay();
-                changeSlide(direction);
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
             }
         }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.photo-slider img');
+    const contents = document.querySelectorAll('.right .content');
+    let currentIndex = 0;
 
-        slider.hero.addEventListener('touchstart', touchStart);
-        slider.hero.addEventListener('touchmove', touchMove);
+    function showNextImage() {
+        images[currentIndex].classList.remove('active');
+        contents[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+        contents[currentIndex].classList.add('active');
     }
 
-    const start = function () {
-        autoplay(true);
-        wheelControl();
-        window.innerWidth <= 1024 && touchControl();
-        slider.aux.addEventListener('transitionend', loaded, {
-            once: true
+    setInterval(showNextImage, 3000); // Change image and content every 3 seconds
+
+    const sliders = document.querySelectorAll('.slider-item');
+
+    sliders.forEach(slider => {
+        slider.addEventListener('mouseenter', () => {
+            sliders.forEach(s => s.classList.remove('active'));
+            slider.classList.add('active');
         });
-    }
 
-    const loadingAnimation = function () {
-        slider.hero.classList.add('ready');
-        slider.current.addEventListener('transitionend', start, {
-            once: true
+        slider.addEventListener('mouseleave', () => {
+            sliders.forEach(s => s.classList.remove('active'));
         });
-    }
-
-    const init = function () {
-        setHeight(slider.aux, slider.aux.querySelectorAll('.slide-title'));
-        loadingAnimation();
-    }
-
-    const resize = function () {
-        setHeight(slider.aux, slider.aux.querySelectorAll('.slide-title'));
-    }
-
-    return {
-        init,
-        resize
-    }
-}
-window.addEventListener('load', heroSlider().init);
-window.addEventListener("resize", heroSlider().resize);
-
+    });
+});
