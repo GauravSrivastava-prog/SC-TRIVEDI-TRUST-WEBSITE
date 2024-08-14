@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>S.C. Trivedi Trust</title>
-  <link rel="stylesheet" href="/reset.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,32 +18,35 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
   
   <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 
-  <section class="hero">
-    <div class="slideshow-container">
-      <div class="slide" style="background-image: url('assets/trust pic.jpg');"></div>
-      <div class="slide" style="background-image: url('assets/machines\(1\).jpg');"></div>
-      <div class="slide" style="background-image: url('assets/rooms\(1\).jpg');"></div>
-      <div class="slide" style="background-image: url('assets/staff\(1\).jpg');"></div>
-      <div class="slide" style="background-image: url('assets/hall\(1\).jpg');"></div>
-      <div class="slide" style="background-image: url('assets/staff\(3\).jpg');"></div>
-      <div class="slide" style="background-image: url('assets/mam-pic\(2\).jpg');"></div>
-    </div>
-    <div class="hero-content">
-      <h1>
-        <a href="" class="typewrite" data-period="2000" data-type='[ "Welcome to the official", "S C Trivedi Memorial", "Mother & Child Care", "Trust Hospital Website."]'>
-          <span class="wrap"></span>
-        </a>
-      </h1>
-    </div>
-  </section>
+    <section class="hero">
+      <div class="slideshow-container">
+        <div class="slide" style="background-image: url('assets/trust pic.jpg');"></div>
+        <div class="slide" style="background-image: url('assets/machines\(1\).jpg');"></div>
+        <div class="slide" style="background-image: url('assets/rooms\(1\).jpg');"></div>
+        <div class="slide" style="background-image: url('assets/staff\(1\).jpg');"></div>
+        <div class="slide" style="background-image: url('assets/hall\(1\).jpg');"></div>
+        <div class="slide" style="background-image: url('assets/staff\(3\).jpg');"></div>
+        <div class="slide" style="background-image: url('assets/mam-pic\(2\).jpg');"></div>
+      </div>
+      <div class="hero-content">
+        <h1>
+          <a href="" class="typewrite" data-period="2000" data-type='[ "Welcome to the official", "S C Trivedi Memorial", "Mother & Child Care", "Trust Hospital Website."]'>
+            <span class="wrap"></span>
+          </a>
+        </h1>
+      </div>
+    </section>
 
-  <h2 class="section-heading">Meet The Visionary Behind Our Mission !</h2>
+
+  <h2 class="section-heading">Know Your Doctor !</h2>
 
   <section class="about-section">
     <div class="row">
@@ -52,15 +54,19 @@
         <div class="card-image-container">
           <img src="assets/mam-pic.jpg" alt="Pic of Dr. Asmita Shukla" class="card-image">
         </div>
-        <div class="card-content">
-          <h2 class="name">Dr. Amita Shukla</h2>
-          <p class="title">Founder</p>
-          <br>
-          <br>
-          <br>
-          <p class="about-text">"Some text that describes me."</p>
-          <p class="mail">example@example.com</p>
-          <p><button class="button">Contact</button></p>
+        <div class="card-content"> 
+          <h2 class="name"><a class="hover-text">Dr. Amita Shukla</a></h2>
+          <p class="title">M.B.B.S. (Gold Medallist)</p>
+          <p class="title">M.S. (Obstetrics & Gynaecology)</p>
+          <p class="title">Obstetrician, Gynaecologist & Laproscopist</p>
+          <p class="title">Vice President & Treasurer, Association of International Doctors</p>
+          <a class="gap"></a>
+          <span class="about-text">Trained in <a class="bold">"High Risk Pregnancy"</a> and Post Graduate Certification in Reproductive Endocrinology & Infertility, from The American College of Obstetricians and Gynaecologists, (ACOG), USA</span> 
+          <span class="about-text">Diploma in <a class="bold">Aesthetic Gynaecology</a> (ISAG) Certification Course in BREAST Radiology, Royal College of Radiologists, Health Education, England.</span>
+          <span class="about-text">With over a decade of experience, Dr. Shukla is a trusted authority in managing a spectrum of women's health issues, including <a class="bold">pregnancies, infertility, PCOD, and onco-gynaecology.</a></span>
+          <span class="about-text">Proficient in advanced procedures such as <a class="bold">laparoscopy</a> and <a class="bold">hysteroscopy</a>, as well as <a class="bold">reproductive endocrinology</a>, reflecting her comprehensive approach to patient care.</span>
+          <span class="about-text"><a class="bold">MCI REG NO. 30003</a></span> 
+          <p><button class="button" id="contactButton">Contact</button></p>
         </div>
       </div>
     </div>
@@ -80,24 +86,42 @@
     </section>
     <section class="slider-item right">
         <section class="content active" id="content1">
-            <h2>Title 1</h2>
-            <p>Description for Image 1. This content changes with the image.</p>
+            <h2 class="name">A Home Away from Home</h2>
+            <br>
+            <br>
+            <br>
+            <span class="about-text">At S.C. Trivedi Trust Hospital, we believe in creating a comfortable and welcoming environment for our patients and their families. Our spacious and well-furnished lounge area is designed to make you feel at home. With plush seating, modern amenities, and a tranquil ambiance, you can relax and unwind while we take care of your medical needs. We understand that a peaceful mind contributes significantly to the healing process, and our facilities are crafted to provide just that.</span>
         </section>
         <section class="content" id="content2">
-            <h2>Title 2</h2>
-            <p>Description for Image 2. This content changes with the image.</p>
+            <h2 class="name">Cutting-Edge Medical Technology</h2>
+            <br>
+            <br>
+            <br>
+            <span class="about-text">Our commitment to providing the highest standard of care is reflected in our state-of-the-art medical equipment. We are equipped with advanced neonatal care units and life-support systems to ensure the best possible outcomes for our youngest and most vulnerable patients. Our medical infrastructure is continually updated to incorporate the latest advancements in healthcare technology, ensuring that you receive the most effective and efficient treatment available.</p>
         </section>
         <section class="content" id="content3">
-            <h2>Title 3</h2>
-            <p>Description for Image 3. This content changes with the image.</p>
+            <h2 class="name">Comfort and Care at Your Service</h2>
+            <br>
+            <br>
+            <br>
+            <span class="about-text">At SC Trivedi Memorial Mother & Child Care Trust Hospital, we believe that a healing environment is essential to recovery. Our patient-centric approach is evident in every detail, from the moment you step into our facility. Our rooms are designed to provide maximum comfort and convenience for both patients and their loved ones. Equipped with modern amenities such as comfortable beds, advanced medical equipment, and entertainment options, our rooms offer a serene atmosphere conducive to healing. We understand the importance of a supportive environment during your stay. Our spacious rooms provide ample space for family and friends to be with you, offering comfort and reassurance throughout your journey to wellness.</span>
+            <br>
+            <br>
+            <span class="about-text"><a class="bold">The S.C. Trivedi difference - where care meets comfort.</a></span>
         </section>
         <section class="content" id="content4">
-            <h2>Title 4</h2>
-            <p>Description for Image 4. This content changes with the image.</p>
+            <h2 class="name">Nurturing New Beginnings</h2>
+            <br>
+            <br>
+            <br>
+            <span class="about-text">At S.C. Trivedi Memorial Mother & Child Care Trust Hospital, we understand the delicate balance between medical expertise and a nurturing environment. Our maternity wards are designed to provide comfort, care, and safety for both mother and child. Our spacious rooms are equipped with state-of-the-art facilities to ensure a smooth and comfortable post-delivery experience. We believe in creating a serene atmosphere that promotes healing and bonding. Choose S.C. Trivedi for a childbirth experience that prioritizes your well-being and that of your newborn.</span>
         </section>
         <section class="content" id="content5">
-            <h2>Title 5</h2>
-            <p>Description for Image 5. This content changes with the image.</p>
+            <h2 class="name">Comprehensive and Compassionate Care</h2>
+            <br>
+            <br>
+            <br>
+            <span class="about-text">At S.C. Trivedi Trust Hospital, we pride ourselves on our holistic approach to healthcare. Our dedicated team of medical professionals is not only highly qualified but also deeply compassionate. We take the time to understand each patient's unique needs and circumstances, offering personalized care plans that promote overall well-being. From routine check-ups to complex surgeries, we are committed to delivering comprehensive healthcare services with a personal touch.</span>
         </section>
     </section>
   </section>
@@ -135,6 +159,96 @@
     </div>
   </section>
 
+  <h2 class="section-heading">The Care Chronicles.</h2>
+
+  <section class="hero-slider">
+    <div class="slide active">
+      <img src="assets/hospital_pic(2).webp">
+    </div>
+    <div class="slide active">
+      <img src="assets/Gall1.jpg">
+    </div>
+    <div class="slide">
+      <img src="assets/Gall2.jpg">
+    </div>
+    <div class="slide">
+      <img src="assets/Gall3.jpg">
+    </div>
+    <div class="slide">
+      <img src="assets/Gall4.jpg">
+    </div>
+    <div class="slide">
+      <img src="assets/Gall5.jpg">
+    </div>
+    <div class="slide">
+      <img src="assets/Gall(b1).jpg">
+    </div>
+  </section>
+  
+  <h2 class="section-heading">Spotlight Stories</h2>  
+  <!-- Photo Grid -->
+  <section class="row"> 
+    <section class="column">
+      <img src="/assets/News(1).webp" style="width:100%">
+      <img src="/assets/News(2).heic" style="width:100%">
+      <img src="/assets/News(3).heic" style="width:100%">
+      <img src="/assets/News(4).jpeg" style="width:100%">
+      <img src="/assets/News(5).heic" style="width:100%">
+    </section>
+    <section class="column">
+      <img src="/assets/News(6).webp" style="width:100%">
+      <img src="/assets/News(7).webp" style="width:100%">
+      <img src="/assets/News(8).jpg" style="width:100%">
+      <img src="/assets/News(9).jpg" style="width:100%">
+      <img src="/assets/News(10).jpg" style="width:100%">
+    </section>
+    <section class="column">
+      <img src="/assets/News(11).webp" style="width:100%">
+      <img src="/assets/News(12).webp" style="width:100%">
+      <img src="/assets/News(13).webp" style="width:100%">
+      <img src="/assets/News(14).heic" style="width:100%">
+      <img src="/assets/News(15).heic" style="width:100%">
+    </section>  
+  </section>
+
+  <h2 class="section-heading">Have Questions? Contact Us</h2>
+
+  <section class="contact-container">
+    <form action="https://formspree.io/f/mkgwbypo" method="POST" class="contact-form">
+        <section class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </section>
+
+        <section class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </section>
+
+        <section class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+        </section>
+
+        <section class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+        </section>
+
+        <section class="form-group-button">
+            <button type="submit">Send Message</button>
+        </section>
+    </form>
+  </section>
+
+    <!-- WhatsApp Floating Button -->
+  <div class="whatsapp-button">
+    <a href="https://api.whatsapp.com/send?phone=9076990001&text=Hello, I would like to book an appointment !" target="_blank">
+      <i class="fa fa-whatsapp"></i>
+    </a>
+  </div>
+
+
   <footer>
     <div class="location-line">Find us here &#128205;</div>
     <div id="map">
@@ -152,7 +266,7 @@
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
-            <li>
+            <!--<li>
                 <a class="twitter" href="#">
                     <span></span>
                     <span></span>
@@ -161,8 +275,9 @@
                     <i class="fa fa-twitter" aria-hidden="true"></i>
                 </a>
             </li>
+          -->
             <li>
-                <a class="instagram" href="#">
+                <a class="instagram" href="https://www.instagram.com/scthospital/""  target="_blank">
                     <span></span>
                     <span></span>
                     <span></span>

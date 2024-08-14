@@ -1,20 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const slides = document.querySelectorAll(".slide");
-    let currentSlide = 0;
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.toggle("active", i === index);
-        });
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    }
-
-    setInterval(nextSlide, 3000); // Change slide every 3 seconds
-    showSlide(currentSlide); // Show the first slide initially
     var TxtType = function(el, toRotate, period) {
         this.toRotate = toRotate;
         this.el = el;
@@ -30,9 +14,9 @@ document.addEventListener("DOMContentLoaded", function() {
         var fullTxt = this.toRotate[i];
 
         if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
         } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
         }
 
         this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
@@ -43,16 +27,16 @@ document.addEventListener("DOMContentLoaded", function() {
         if (this.isDeleting) { delta /= 2; }
 
         if (!this.isDeleting && this.txt === fullTxt) {
-        delta = this.period;
-        this.isDeleting = true;
+            delta = this.period;
+            this.isDeleting = true;
         } else if (this.isDeleting && this.txt === '') {
-        this.isDeleting = false;
-        this.loopNum++;
-        delta = 500;
+            this.isDeleting = false;
+            this.loopNum++;
+            delta = 500;
         }
 
         setTimeout(function() {
-        that.tick();
+            that.tick();
         }, delta);
     };
 
@@ -62,16 +46,17 @@ document.addEventListener("DOMContentLoaded", function() {
             var toRotate = elements[i].getAttribute('data-type');
             var period = elements[i].getAttribute('data-period');
             if (toRotate) {
-              new TxtType(elements[i], JSON.parse(toRotate), period);
+                new TxtType(elements[i], JSON.parse(toRotate), period);
             }
         }
         // INJECT CSS
         var css = document.createElement("style");
-        css.type = "text/css";
+        
         css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
         document.body.appendChild(css);
     };
 });
+
 document.addEventListener('DOMContentLoaded', () => {
     const images = document.querySelectorAll('.photo-slider img');
     const contents = document.querySelectorAll('.right .content');
@@ -99,4 +84,25 @@ document.addEventListener('DOMContentLoaded', () => {
             sliders.forEach(s => s.classList.remove('active'));
         });
     });
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const whatsappButton = document.querySelector('.whatsapp-button');
+    const heroSection = document.querySelector('.hero');
+    let heroSectionHeight = heroSection.offsetHeight;
+
+    function handleScroll() {
+      if (window.scrollY > heroSectionHeight) {
+        whatsappButton.classList.add('visible');
+        whatsappButton.classList.remove('hidden');
+      } else {
+        whatsappButton.classList.add('hidden');
+        whatsappButton.classList.remove('visible');
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check in case the page is already scrolled down
+  });
+document.getElementById("contactButton").addEventListener("click", function() {
+    window.open("mailto:example@domain.com", "_blank");
 });

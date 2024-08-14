@@ -5,7 +5,7 @@
   --text-font-style: normal;
   --base-text-font-size: 14px;
   --default-text-font-size: 14px;
-  --background: #efefef;
+  --background: #FBFCF8bf;
   --heading-color: #1c1b1b;
   --text-color: #1c1b1b;
   --light-background: #ffffff;
@@ -35,7 +35,7 @@ h1, h2, h3, h4, h5, h6 {
   font-style: var(--heading-font-style);
   color: var(--heading-color);
 }
-
+/*
 .hero {
   position: relative;
   background-size: cover;
@@ -47,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   text-align: center;
 }
-
+*/
 .slideshow-container {
   position: absolute;
   top: 0;
@@ -61,7 +61,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Slides */
-.slide {
+/*
+.slide { 
   position: absolute;
   width: 100%;
   height: 100%;
@@ -70,11 +71,18 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
   transition: opacity 1s ease-in-out;
   border-image: fill 0 linear-gradient(#0003, #000);
+  z-index: 0;
 }
-
+*/
 /* Active slide */
+/*
 .slide.active {
   opacity: 1;
+  z-index: 1;
+}
+
+.slide.fade {
+  transition: opacity 1s ease-in-out;
 }
 
 .hero h1 a {
@@ -97,6 +105,121 @@ h1, h2, h3, h4, h5, h6 {
   0 0 1.5px white,
   0 0 2px white;
 }
+*/
+.hero {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh; /* Adjust based on your needs */
+}
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center; /* Center slides vertically */
+  justify-content: center; /* Center slides horizontally */
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2s ease-in-out; /* Smooth transition effect */
+  border-image: fill 0 linear-gradient(#0003, #000);
+  z-index: 1;
+}
+
+/* Define the total time for the slideshow to loop through all images */
+@keyframes slideFade {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Adjust the timing of each slide's appearance and disappearance */
+.slide:nth-child(1) {
+  animation: slideFade 25s infinite 0s;
+}
+
+.slide:nth-child(2) {
+  animation: slideFade 25s infinite 5s; /* Start after 5s */
+}
+
+.slide:nth-child(3) {
+  animation: slideFade 25s infinite 10s; /* Start after 10s */
+}
+
+.slide:nth-child(4) {
+  animation: slideFade 25s infinite 15s; /* Start after 15s */
+}
+
+.slide:nth-child(5) {
+  animation: slideFade 25s infinite 20s; /* Start after 20s */
+}
+
+.slide:nth-child(6) {
+  animation: slideFade 25s infinite 25s; /* Start after 25s */
+}
+
+.slide:nth-child(7) {
+  animation: slideFade 25s infinite 30s; /* Start after 30s */
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 10; /* Make sure text is above slides */
+}
+
+.hero h1 a {
+  position: relative;
+  z-index: 2;
+  font-size: 50px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+  cursor: pointer;
+  text-shadow: 15px 15px 16px #0003;
+}
+
+.hero h1 a:hover {
+  text-shadow: 0 0 0.5px white, 
+  0 0 1px white,
+  0 0 1.5px white,
+  0 0 2px white;
+}
+.typewrite > .wrap {
+  border-right: 0.08em solid #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+}
+
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -134,18 +257,58 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Raleway', sans-serif;
   font-weight: 500px;
   font-size: 40px;
+  margin: 1rem;
 }
 .title {
   color: grey;
   font-family: 'Raleway', sans-serif;
+  margin: 1px;
+  
 }
 .about-text{
   color: #1c1b1b;
   font-family: 'Raleway', sans-serif;
+  word-spacing: 1px;
+  padding: 0.5rem;
+  margin: 0;
+  text-decoration: none;
+  line-height: 1.5; /* Adjust this value for desired space */
+}
+.hover-text {
+  position: relative;
+  color: #000;
+  text-decoration: none;
+  padding-bottom: 3px;
+}
+
+.hover-text::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  transform: scaleX(0);
+  animation: underline 0.3s forwards; /* Add animation and delay */
+  animation-delay: 3s; 
+}
+
+@keyframes underline {
+  to {
+    transform: scaleX(1);
+  }
+}
+.bold{
+  color: #1c1b1b;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
 }
 .mail{
   color: #1c1b1b;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Monteserrat', sans-serif;
+  margin-top: 4rem;
 }
 .button {
   border: none;
@@ -181,13 +344,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-heading {
+  position: relative;
   margin: 0;
   text-align: center;
   font-size: 50px;
   /*margin-bottom: 5rem;*/
   font-weight: var(--heading-font-weight);
   word-spacing: 8px;
-  background: linear-gradient(to right, #F5EBDD, #efefef); /* Gradient from Blush Beige to Soft Coral */
+  /*background: linear-gradient(to right, #F5EBDD, #efefef);*/ /* Gradient from Blush Beige to Soft Coral */
+  background: #FFF9E3;
   padding: 3.5rem;
   color: var(--heading-color);
   text-shadow:
@@ -207,8 +372,8 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   max-width: 1300px;
   width: 100%; /* Make the card take the full width within the container */
-  height: 600px;
-  overflow: hidden; /* Prevent overflow issues */
+  height: 730px;
+  overflow: hidden;
 }
 
 .card-image-container {
@@ -228,6 +393,11 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-height: 730px; /* Add a fixed height */
+  overflow-y: auto;
+}
+.gap{
+  margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 650px) {
@@ -236,6 +406,39 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
   }
 }
+@media screen and (max-width: 768px) {
+  
+  .horizontal-card {
+    flex-direction: column; /* Stack image and content vertically on smaller screens */
+  }
+  .card-image {
+    height: 300px; /* Adjust height as needed */
+    object-fit: cover; /* Ensure the image covers the container */
+  }
+  .gap{
+    margin-bottom: 1px;
+  }
+  .card-content {
+    overflow-y: auto;
+  }
+  .name{
+    font-size: medium;
+    margin-top: 0%;
+  }
+  .title{
+    font-size: small;
+    margin-bottom: 4px;
+  }
+  .about-text{
+    font-size: xx-small;
+  }
+  .button{
+    margin-top: 1px;
+   padding: 8px 16px; 
+  }
+}
+
+
 .split-slider {
   display: flex;
   height: 100vh;
@@ -281,7 +484,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .right {
-  background-color: rgb(231, 225, 217);
+  background-color: whitesmoke;
   color: #333;
   display: flex;
   justify-content: center;
@@ -309,10 +512,43 @@ h1, h2, h3, h4, h5, h6 {
   color: #444;
 }
 
-.slider-item p {
+.slider-item span {
   font-size: 1.2em;
   max-width: 400px;
   color: #666;
+}
+@media (max-width: 768px) {
+  .split-slider {
+    flex-direction: column-reverse; /* Reverse the order of the items */
+  }
+  
+  .split-slider .slider-item.left {
+    order: 2; /* Ensure the picture slideshow comes first */
+  }
+  
+  .split-slider .slider-item.right {
+    order: 1; /* Ensure the text section comes second */   
+  }
+  
+  .split-slider .slider-item {
+    width: 100%;
+  }
+  .slider-item.right {
+    padding: 10px; /* Add padding to ensure the text is not cut off */
+  }
+
+  .slider-item.right h2 {
+    font-size: medium;
+    padding: 0%;
+    margin: 0%;
+  }
+
+  .slider-item.right span {
+    font-size: small;
+    padding: 0%;
+    margin: 0%;
+  }
+  
 }
 .biography {
   padding: 50px;
@@ -551,8 +787,6 @@ ul li a:hover:nth-child(4) {
   color: #404040;
 }
 
-/* Footer - End */
-
 .footer .copyright {
   margin-top: 1rem; /* Ensure consistent spacing */
   font-size: 0.9rem;
@@ -560,3 +794,262 @@ ul li a:hover:nth-child(4) {
 }
 
 /* Footer - End */
+
+/* WhatsApp Floating Button */
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: none; /* Initially hidden */
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #00E676, #00C853); /* Gradient Green */
+  color: white;
+  border-radius: 50%;
+  font-size: 30px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
+}
+
+.whatsapp-button.visible {
+  display: flex;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.whatsapp-button.hidden {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.whatsapp-button:hover {
+  background: linear-gradient(135deg, #00C853, #00E676); /* Reversed Gradient */
+  transform: scale(1.2);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.1); /* Add subtle dark overlay */
+}
+
+.whatsapp-button:hover i {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7); /* Add glow effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .whatsapp-button {
+    width: 60px;
+    height: 60px;
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-button {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+}
+
+/* Contact Form */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  background-color: var(--background);
+  border-top: 1px solid #ddd;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+  padding: 70px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #333;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+}
+.form-group-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact-form button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 16px 32px; /* Increase padding */
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 8px; /* Add border-radius */
+  font-size: 18px; /* Increase font size */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for hover effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add box shadow */
+  margin-top: 20px; /* Add margin to the top */
+}
+
+.contact-form button:hover {
+  background-color: #333; /* Darken on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Basic styling for the hero slider container */
+section.hero-slider {
+  position: relative;
+  max-width: 100%;
+  height: 80vh; /* Adjust height as needed */
+  overflow: hidden;
+  
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Individual slides */
+section.hero-slider .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Active slide */
+section.hero-slider .slide.active {
+  opacity: 1;
+}
+
+/* Slide image styling */
+section.hero-slider .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+}
+
+/* Animation */
+@keyframes slideAnimation {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  25% { opacity: 1; }
+  35% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+section.hero-slider .slide:nth-child(1) {
+  animation: slideAnimation 16s infinite;
+  animation-delay: 0s;
+}
+
+section.hero-slider .slide:nth-child(2) {
+  animation: slideAnimation 16s infinite;
+  animation-delay: 4s;
+}
+
+section.hero-slider .slide:nth-child(3) {
+  animation: slideAnimation 16s infinite;
+  animation-delay: 8s;
+}
+
+section.hero-slider .slide:nth-child(4) {
+  animation: slideAnimation 16s infinite;
+  animation-delay: 12s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  section.hero-slider {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 480px) {
+  section.hero-slider {
+    height: 40vh;
+  }
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background);
+  max-height: 95vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
