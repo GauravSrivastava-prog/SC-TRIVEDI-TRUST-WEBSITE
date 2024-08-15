@@ -1,5 +1,3 @@
-To make the README file accurate and reflective of the provided HTML content, here's how it could be structured:
-
 ---
 
 # S.C. Trivedi Trust Hospital Website
