@@ -1,94 +1,99 @@
+To make the README file accurate and reflective of the provided HTML content, here's how it could be structured:
+
 ---
 
-# SC Trivedi Trust Website
+# S.C. Trivedi Trust Hospital Website
 
-Welcome to the SC Trivedi Trust website repository! This project is dedicated to creating an engaging and informative online presence for the SC Trivedi Trust, showcasing its mission, vision, and various philanthropic activities. Below you will find detailed information about the project's setup, functionality, and structure.
+This repository contains the source code for the official website of S.C. Trivedi Memorial Mother & Child Care Trust Hospital. The website showcases the services, facilities, and legacy of the hospital, as well as providing information about the founder, Sri S.C. Trivedi.
 
 ## Table of Contents
 
-1. [Project Overview](#project-overview)
+1. [Introduction](#introduction)
 2. [Features](#features)
-3. [Technologies Used](#technologies-used)
-4. [Installation](#installation)
+3. [Getting Started](#getting-started)
+4. [Folder Structure](#folder-structure)
 5. [Usage](#usage)
-6. [Folder Structure](#folder-structure)
-7. [Contributing](#contributing)
+6. [Contact](#contact)
+7. [License](#license)
 
-## Project Overview
+## Introduction
 
-The SC Trivedi Trust website is a comprehensive platform designed to provide information about the trust, its founder, and its various initiatives. The website features a dynamic hero section with a slideshow, a section introducing the visionary behind the mission, a split-slider showcasing different aspects of the trust, and a detailed biography of Sri Shiv Chandra Trivedi.
+The S.C. Trivedi Trust Hospital website is designed to provide patients and visitors with all the necessary information about the hospital, its services, and its staff. The website also includes a brief biography of Sri S.C. Trivedi, the philanthropist behind the trust.
 
 ## Features
 
-- **Hero Section**: Includes a full-screen slideshow with images of the trust’s facilities and staff.
-- **About Section**: Highlights Dr. Amita Shukla, the founder of the trust, with a horizontal card layout.
-- **Split Slider**: Displays a side-by-side slider with images and descriptive content.
-- **Biography Section**: Provides a detailed account of Sri Shiv Chandra Trivedi’s life and philanthropic efforts.
-- **Footer**: Contains a Google Maps iframe for location and social media icons.
+- **Hero Section with Slideshow**: A dynamic slideshow displaying images of the hospital with a typewriter effect introducing the hospital.
+- **Doctor's Profile**: Information about Dr. Amita Shukla, a renowned obstetrician and gynecologist associated with the hospital.
+- **Why S.C. Trivedi?**: A section that highlights the hospital’s facilities and services, with additional images and detailed descriptions.
+- **Biography Section**: A comprehensive biography of Sri S.C. Trivedi, detailing his life, career, and philanthropic activities.
+- **Care Chronicles**: A gallery showcasing the hospital's infrastructure and patient care services.
+- **Spotlight Stories**: A photo grid displaying recent news and events related to the hospital.
+- **Contact Section**: A form allowing users to send inquiries directly to the hospital, along with a floating WhatsApp button for instant communication.
+- **Google Maps Integration**: An embedded Google Map showing the hospital's location.
+- **Social Media Links**: Quick access to the hospital’s social media profiles.
 
-## Technologies Used
+## Getting Started
 
-- **HTML5**: For structuring the content.
-- **CSS3**: For styling and layout, including responsive design and animations.
-- **JavaScript**: For interactive features such as the slideshow and split-slider functionality.
-- **Google Fonts**: For typography.
-- **Font Awesome**: For social media icons.
-- **Google Maps API**: For embedding the map.
+To run this website locally, follow these steps:
 
-## Installation
+### Prerequisites
 
-To set up this project locally, follow these steps:
+- A modern web browser
+- A local server setup (e.g., XAMPP, WAMP, or Python’s HTTP server)
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/yourusername/sc-trivedi-trust-website.git
-   cd sc-trivedi-trust-website
-   ```
+### Installation
 
-2. **Install Dependencies**
-   Make sure you have [Node.js](https://nodejs.org/) installed. Then, run:
-   ```bash
-   npm install
-   ```
+1. Clone this repository:
+    ```bash
+    git clone https://github.com/yourusername/sc-trivedi-hospital.git
+    ```
+2. Navigate to the project directory:
+    ```bash
+    cd sc-trivedi-hospital
+    ```
 
-3. **Run the Project**
-   For a local development server, you can use:
-   ```bash
-   npm start
-   ```
-   Open your browser and go to `http://localhost:3000` to view the website.
+### Running Locally
 
-## Usage
-
-- **Home Page**: Features a hero section with a slideshow of images related to the trust.
-- **About Section**: Provides information about the founder and includes a contact button.
-- **Split Slider**: Allows users to view images and content side by side.
-- **Biography Section**: Offers detailed information about Sri Shiv Chandra Trivedi’s life and contributions.
+- You can open the `index.html` file directly in your browser, or if using a server, place the files in the appropriate directory and start the server.
 
 ## Folder Structure
 
-Here is an overview of the project directory structure:
-
 ```
-/
-├── assets/                 # Images and icons
+sc-trivedi-hospital/
+│
+├── assets/
 │   ├── favicon_io/
+│   │   ├── apple-touch-icon.png
+│   │   ├── favicon-16x16.png
+│   │   ├── favicon-32x32.png
+│   ├── trust pic.jpg
+│   ├── machines(1).jpg
+│   ├── rooms(1).jpg
+│   ├── staff(1).jpg
 │   ├── hall(1).jpg
 │   ├── mam-pic.jpg
-│   └── ...                 
-├── public/
-│   ├── index.html          # Main HTML file
-├── css/
-│   ├── reset.css           # CSS reset file
-│   └── style.css           # Main stylesheet
-├── js/
-│   └── script.js           # JavaScript file for interactive features
-├── README.md               # This file
-└── package.json            # Node.js dependencies and scripts
+│   ├── logo.jpeg
+│   ├── hospital_pic(2).webp
+│   ├── Gall1.jpg
+│   └── ...
+│
+├── index.html
+├── style.css
+├── script.js
+└── README.md
 ```
 
-## Contributing
+- **assets/**: Contains all the images and icons used on the website.
+- **index.html**: The main HTML file for the website.
+- **style.css**: The main stylesheet for styling the website.
+- **script.js**: Contains JavaScript for interactive elements like the slideshow and typewriter effect.
 
-If you'd like to contribute to this project, please fork the repository and submit a pull request with your changes. Ensure that your code adheres to the project's coding style and passes all tests.
+## Usage
 
----
+- **Slideshow**: Images in the slideshow can be changed by updating the `background-image` URL in the `.slide` divs within `index.html`.
+- **Typewriter Effect**: Customize the text by altering the `data-type` attribute in the `.typewrite` anchor tag.
+- **Contact Form**: The form submits data to Formspree; replace the Formspree endpoint with your own or modify it for your backend.
+
+## Contact
+
+For any inquiries, please contact us via the website's [Contact Form](https://www.sctrust.com/contact) or reach out directly through WhatsApp.
