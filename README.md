@@ -9,8 +9,6 @@ Welcome to the official website repository for the **S.C. Trivedi Memorial Mothe
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ## About the Project
 
