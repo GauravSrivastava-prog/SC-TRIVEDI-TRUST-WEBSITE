@@ -85,24 +85,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-document.addEventListener('DOMContentLoaded', function () {
-    const whatsappButton = document.querySelector('.whatsapp-button');
-    const heroSection = document.querySelector('.hero');
-    let heroSectionHeight = heroSection.offsetHeight;
-
-    function handleScroll() {
-      if (window.scrollY > heroSectionHeight) {
-        whatsappButton.classList.add('visible');
-        whatsappButton.classList.remove('hidden');
-      } else {
-        whatsappButton.classList.add('hidden');
-        whatsappButton.classList.remove('visible');
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check in case the page is already scrolled down
-  });
 document.getElementById("contactButton").addEventListener("click", function() {
     window.open("mailto:example@domain.com", "_blank");
 });
+document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+        document.querySelectorAll('.gallery-item').forEach(el => {
+            if (el !== item) el.classList.remove('open');
+        });
+        item.classList.toggle('open');
+    });
+});
+function enlargeImage(img) {
+    const overlay = document.getElementById('news-card-overlay');
+    const enlargedImg = document.getElementById('enlarged-image');
+    enlargedImg.src = img.src;
+    overlay.style.display = 'flex';
+}
+
+function closeOverlay(event) {
+    // Prevent the event from bubbling up if the close button is clicked
+    if (event.target.id === 'close-button' || event.target.id === 'news-card-overlay') {
+        const overlay = document.getElementById('news-card-overlay');
+        overlay.style.display = 'none';
+    }
+}
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.sticky-navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+function toggleMenu() {
+    const navLinks = document.getElementById('nav-links');
+    navLinks.classList.toggle('open');
+}

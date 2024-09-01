@@ -20,14 +20,35 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <meta name="description" content="S.C. Trivedi Memorial Mother & Child Care Trust Hospital provides comprehensive healthcare services for mothers and children.">
-  <meta name="keywords" content="hospital, mother care, child care, healthcare, Dehradun">
+  <meta name="keywords" content="hospital, mother care, child care, healthcare, lucknow">
   <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 
-    <section class="hero">
+    <header class="sticky-navbar">
+      <nav>
+          <div class="menu-icon" onclick="toggleMenu()">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </div>
+          <ul class="nav-links" id="nav-links">
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#about-section">About</a></li>
+              <li><a href="#split-slider">Services</a></li>
+              <li><a href="#news">News</a></li>
+              <li><a href="#contact">Contact</a></li>
+          </ul>
+      </nav>
+    </header>
+
+    <section class="hero" id="hero">
       <div class="slideshow-container">
         <div class="slide" style="background-image: url('assets/trust pic.jpg');"></div>
         <div class="slide" style="background-image: url('assets/machines\(1\).jpg');"></div>
@@ -47,7 +68,7 @@
     </section>
 
 
-  <h2 class="section-heading">Know Your Doctor !</h2>
+  <h2 class="section-heading" id="about-section">Know Your Doctor !</h2>
 
   <section class="about-section">
     <div class="row">
@@ -73,7 +94,7 @@
     </div>
   </section>
 
-  <h2 class="section-heading">Why S.C. Trivedi ?</h2>
+  <h2 class="section-heading" id="split-slider">Why S.C. Trivedi ?</h2>
 
   <section class="split-slider">
     <section class="slider-item left">
@@ -186,33 +207,68 @@
     </div>
   </section>
   
-  <h2 class="section-heading">Spotlight Stories</h2>  
-  <!-- Photo Grid -->
-  <section class="row"> 
+  <h2 class="section-heading" id="news">Spotlight Stories</h2>  
+  
+  <section class="news-row">
     <section class="column">
-      <img src="/assets/News(1).webp" style="width:100%">
-      <img src="/assets/News(2).heic" style="width:100%">
-      <img src="/assets/News(3).heic" style="width:100%">
-      <img src="/assets/News(4).jpeg" style="width:100%">
-      <img src="/assets/News(5).heic" style="width:100%">
+        <div class="news-card">
+            <div class="news-card-image">
+                <img src="assets/News(1).webp" alt="News-1" onclick="enlargeImage(this)">
+            </div>
+            <div class="news-card-content">
+                <h2>93 UP Hospitals Get NQAS Certification</h2>
+                <p>
+                    Uttar Pradesh has achieved a significant milestone with 93 hospitals receiving NQAS certification. This includes 46 district hospitals, the highest number in India. Dr. Amita Shukla, a senior gynecologist at SC Trivedi Memorial Trust hospital, expressed her support for this achievement.
+                </p>
+            </div>
+        </div>
     </section>
+    <div id="news-card-overlay" onclick="closeOverlay()">
+        <span id="close-button" onclick="closeOverlay(event)">×</span>
+        <img id="enlarged-image" src="" alt="Enlarged Image">
+    </div>
     <section class="column">
-      <img src="/assets/News(6).webp" style="width:100%">
-      <img src="/assets/News(7).webp" style="width:100%">
-      <img src="/assets/News(8).jpg" style="width:100%">
-      <img src="/assets/News(9).jpg" style="width:100%">
-      <img src="/assets/News(10).jpg" style="width:100%">
+        <div class="news-card">
+            <div class="news-card-image">
+                <img src="assets/News(2).heic" alt="News-2" onclick="enlargeImage(this)">
+            </div>
+            <div class="news-card-content">
+                <h2>Life-Saving Surgery at S.C. Trivedi Hospital</h2>
+                <p>
+                    Dr. Amita Shukla, a senior surgeon at S.C. Trivedi Memorial Mother & Child Care Trust Hospital in Lucknow, successfully performed a complex surgery on a woman with a rare 3 kg tumor, saving her life. The woman, Manju Devi, was suffering from the tumor for years and faced difficulties in conceiving.
+                </p>
+            </div>
+        </div>
     </section>
+    <div id="news-card-overlay" onclick="closeOverlay()">
+        <span id="close-button" onclick="closeOverlay(event)">×</span>
+        <img id="enlarged-image" src="" alt="Enlarged Image">
+    </div>
     <section class="column">
-      <img src="/assets/News(11).webp" style="width:100%">
-      <img src="/assets/News(12).webp" style="width:100%">
-      <img src="/assets/News(13).webp" style="width:100%">
-      <img src="/assets/News(14).heic" style="width:100%">
-      <img src="/assets/News(15).heic" style="width:100%">
-    </section>  
+        <div class="news-card">
+            <div class="news-card-image">
+                <img src="assets/News(3).heic" alt="News-3" onclick="enlargeImage(this)">
+            </div>
+            <div class="news-card-content">
+                <h2>Nature's Embrace: A Silent Journey Through Kukrail Forest</h2>
+                <p>
+                    A guided tour through the Kukrail forest was organized on World Forestry Day. Renowned health professional Dr. Amita Shukla emphasized nature's role in mental and physical well-being. Ornithologist Asad Rehmani highlighted the importance of conservation efforts.
+                </p>
+            </div>
+        </div>
+    </section>
+    <div id="news-card-overlay" onclick="closeOverlay()">
+        <span id="close-button" onclick="closeOverlay(event)">×</span>
+        <img id="enlarged-image" src="" alt="Enlarged Image">
+    </div>
   </section>
-
-  <h2 class="section-heading">Have Questions? Contact Us</h2>
+  <section class="news-button-row">
+    <section class="news-button">
+      <a href="news.html" class="button">Read More !</a>
+    </section>
+  </section>
+        
+  <h2 class="section-heading"  id="contact">Have Questions? Contact Us</h2>
 
   <section class="contact-container">
     <form action="https://formspree.io/f/mkgwbypo" method="POST" class="contact-form">
@@ -242,14 +298,6 @@
     </form>
   </section>
 
-    <!-- WhatsApp Floating Button -->
-  <div class="whatsapp-button">
-    <a href="https://api.whatsapp.com/send?phone=9076990001&text=Hello, I would like to book an appointment !" target="_blank">
-      <i class="fa fa-whatsapp"></i>
-    </a>
-  </div>
-
-
   <footer>
     <div class="location-line">Find us here &#128205;</div>
     <div id="map">
@@ -258,6 +306,7 @@
     <div class="follow-line">Follow us</div>
     <div class="follow-icons">
         <ul>
+          <!--
             <li>
                 <a class="facebook" href="#">
                     <span></span>
@@ -267,6 +316,7 @@
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
+            -->
             <!--<li>
                 <a class="twitter" href="#">
                     <span></span>
@@ -278,7 +328,7 @@
             </li>
           -->
             <li>
-                <a class="instagram" href="https://www.instagram.com/scthospital/""  target="_blank">
+                <a class="instagram" href="https://www.instagram.com/scthospital/"  target="_blank">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -286,6 +336,16 @@
                     <i class="fa fa-instagram" aria-hidden="true"></i>
                 </a>
             </li>
+            <li>
+              <a class="whatsapp" href="https://api.whatsapp.com/send?phone=9076990001&text=Hello, I would like to book an appointment !" target="_blank">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <i class="fa fa-whatsapp" aria-hidden="true"></i>
+              </a>
+            </li>
+          
         </ul>
     </div>
     <p class="copyright">© 2024 SC Trivedi Trust. All rights reserved.</p>
