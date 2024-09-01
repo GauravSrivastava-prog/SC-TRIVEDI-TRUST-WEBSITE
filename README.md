@@ -1,97 +1,81 @@
----
+# S.C. Trivedi Memorial Mother & Child Care Trust Hospital Website
 
-# S.C. Trivedi Trust Hospital Website
-
-This repository contains the source code for the official website of S.C. Trivedi Memorial Mother & Child Care Trust Hospital. The website showcases the services, facilities, and legacy of the hospital, as well as providing information about the founder, Sri S.C. Trivedi.
+Welcome to the official website repository for the **S.C. Trivedi Memorial Mother & Child Care Trust Hospital**. This website is dedicated to providing comprehensive healthcare services for mothers and children in Lucknow.
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Features](#features)
-3. [Getting Started](#getting-started)
-4. [Folder Structure](#folder-structure)
-5. [Usage](#usage)
-6. [Contact](#contact)
-7. [License](#license)
+- [About the Project](#about-the-project)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-## Introduction
+## About the Project
 
-The S.C. Trivedi Trust Hospital website is designed to provide patients and visitors with all the necessary information about the hospital, its services, and its staff. The website also includes a brief biography of Sri S.C. Trivedi, the philanthropist behind the trust.
+The S.C. Trivedi Memorial Mother & Child Care Trust Hospital is a facility focused on providing exceptional healthcare services to mothers and children. This website serves as an informational hub for patients, offering insights into the hospital's services, staff, and facilities.
+
+### Technologies Used
+
+- **HTML5** - For the basic structure of the website.
+- **CSS3** - For styling the website and ensuring a responsive design.
+- **JavaScript** - For interactive features like the slideshow and navigation menu.
+- **Font Awesome** - For scalable vector icons.
+- **Google Fonts** - For custom typography.
 
 ## Features
 
-- **Hero Section with Slideshow**: A dynamic slideshow displaying images of the hospital with a typewriter effect introducing the hospital.
-- **Doctor's Profile**: Information about Dr. Amita Shukla, a renowned obstetrician and gynecologist associated with the hospital.
-- **Why S.C. Trivedi?**: A section that highlights the hospital’s facilities and services, with additional images and detailed descriptions.
-- **Biography Section**: A comprehensive biography of Sri S.C. Trivedi, detailing his life, career, and philanthropic activities.
-- **Care Chronicles**: A gallery showcasing the hospital's infrastructure and patient care services.
-- **Spotlight Stories**: A photo grid displaying recent news and events related to the hospital.
-- **Contact Section**: A form allowing users to send inquiries directly to the hospital, along with a floating WhatsApp button for instant communication.
-- **Google Maps Integration**: An embedded Google Map showing the hospital's location.
-- **Social Media Links**: Quick access to the hospital’s social media profiles.
+- **Sticky Navigation Bar**: A modern, sticky navigation bar that remains at the top as you scroll through the site. On smaller screens, the navigation bar transforms into a hamburger menu.
+- **Slideshow**: A slideshow on the homepage, highlighting the hospital's infrastructure, staff, and facilities.
+- **Typewriting Effect**: A dynamic typewriter effect on the hero section to welcome visitors.
+- **Doctor's Profile**: Detailed profile of Dr. Amita Shukla, showcasing her qualifications and expertise.
+- **Split Slider Section**: Highlights the unique aspects of the hospital, such as cutting-edge medical technology and patient care.
+- **Biography Section**: A brief biography of Sri S.C. Trivedi, a humble philanthropist, and the inspiration behind the hospital.
+- **News Section**: A spotlight on the latest stories and events related to the hospital.
 
-## Getting Started
+## Installation
 
-To run this website locally, follow these steps:
-
-### Prerequisites
-
-- A modern web browser
-- A local server setup (e.g., XAMPP, WAMP, or Python’s HTTP server)
-
-### Installation
-
-1. Clone this repository:
+1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/sc-trivedi-hospital.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd sc-trivedi-hospital
+    git clone https://github.com/your-username/sc-trivedi-trust.git
     ```
 
-### Running Locally
+2. **Navigate to the project directory**:
+    ```bash
+    cd sc-trivedi-trust
+    ```
 
-- You can open the `index.html` file directly in your browser, or if using a server, place the files in the appropriate directory and start the server.
-
-## Folder Structure
-
-```
-sc-trivedi-hospital/
-│
-├── assets/
-│   ├── favicon_io/
-│   │   ├── apple-touch-icon.png
-│   │   ├── favicon-16x16.png
-│   │   ├── favicon-32x32.png
-│   ├── trust pic.jpg
-│   ├── machines(1).jpg
-│   ├── rooms(1).jpg
-│   ├── staff(1).jpg
-│   ├── hall(1).jpg
-│   ├── mam-pic.jpg
-│   ├── logo.jpeg
-│   ├── hospital_pic(2).webp
-│   ├── Gall1.jpg
-│   └── ...
-│
-├── index.html
-├── style.css
-├── script.js
-└── README.md
-```
-
-- **assets/**: Contains all the images and icons used on the website.
-- **index.html**: The main HTML file for the website.
-- **style.css**: The main stylesheet for styling the website.
-- **script.js**: Contains JavaScript for interactive elements like the slideshow and typewriter effect.
+3. **Open `index.html` in your browser**:
+    ```bash
+    open index.html
+    ```
 
 ## Usage
 
-- **Slideshow**: Images in the slideshow can be changed by updating the `background-image` URL in the `.slide` divs within `index.html`.
-- **Typewriter Effect**: Customize the text by altering the `data-type` attribute in the `.typewrite` anchor tag.
-- **Contact Form**: The form submits data to Formspree; replace the Formspree endpoint with your own or modify it for your backend.
+The website can be used by the hospital staff to provide up-to-date information to visitors. It also serves as a valuable resource for patients seeking information about the hospital's services and facilities.
 
-## Contact
+### Responsive Design
 
-For any inquiries, please contact us via the website's [Contact Form](https://www.sctrust.com/contact) or reach out directly through WhatsApp.
+The website is designed to be fully responsive and accessible on all screen sizes, ensuring an optimal user experience on mobile, tablet, and desktop devices.
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
+
+1. **Fork the repository**
+2. **Create a new feature branch**:
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+3. **Commit your changes**:
+    ```bash
+    git commit -m "Add your feature description"
+    ```
+4. **Push to the branch**:
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+5. **Create a Pull Request**
+
+This website is dedicated to preserving the legacy of Sri S.C. Trivedi and continuing his mission of providing compassionate and comprehensive healthcare to those in need.
